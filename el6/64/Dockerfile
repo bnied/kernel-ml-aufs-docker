@@ -1,7 +1,8 @@
-FROM oraclelinux:8-slim
+FROM centos:centos6
 LABEL AUTHOR "Ben Nied <spacewreckage@gmail.com>"
 
-RUN dnf -y install gcc make bison flex git dnf-utils spectool rpm-build dnf-plugins-core
+ADD cfg/devtoolset-3.repo /etc/yum.repos.d/
+RUN yum -y install gcc make bison flex git yum-utils spectool rpmbuild yum-builddep devtoolset-3-toolchain
 RUN git clone https://github.com/bnied/kernel-ml-aufs.git /opt/kernel-ml-aufs
 
 ADD entrypoint.sh /entrypoint.sh
