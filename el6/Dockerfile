@@ -1,7 +1,7 @@
 FROM centos:centos6
 LABEL AUTHOR "Ben Nied <spacewreckage@gmail.com>"
-ENV KERNEL_FULL_VERSION 4.19.1
-ENV KERNEL_BASE_VERSION 4.19
+ENV KERNEL_FULL_VERSION 5.2.7
+ENV KERNEL_BASE_VERSION 5.2
 ENV RELEASE_VERSION 1
 
 ADD cfg/devtoolset-3.repo /etc/yum.repos.d/
@@ -23,7 +23,7 @@ RUN cp specs-el6/kernel-ml-aufs-$KERNEL_BASE_VERSION.spec /root/rpmbuild/SPECS/
 
 WORKDIR /root/rpmbuild/SOURCES/
 RUN echo $KERNEL_BASE_VERSION
-RUN git clone git://github.com/sfjro/aufs4-standalone.git -b aufs$KERNEL_BASE_VERSION aufs-standalone
+RUN git clone git://github.com/sfjro/aufs5-standalone.git -b aufs$KERNEL_BASE_VERSION aufs-standalone
 
 WORKDIR /root/rpmbuild/SOURCES/aufs-standalone
 ENV HEAD_COMMIT $(git rev-parse --short HEAD)
