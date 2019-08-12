@@ -39,8 +39,6 @@ cd /root/rpmbuild/SRPMS/
 rpmbuild --rebuild kernel-ml-aufs-$KERNEL_FULL_VERSION-$RELEASE_VERSION.el7.src.rpm
 
 mkdir -p /root/ml
-rm -rf /root/ml/*
-
 
 mkdir -p /root/ml/SRPMS
 cp -av /root/rpmbuild/SRPMS/* /root/ml/SRPMS/
