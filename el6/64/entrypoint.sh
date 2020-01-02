@@ -24,7 +24,7 @@ cp configs-el6/config-$KERNEL_FULL_VERSION* /root/rpmbuild/SOURCES/
 cp specs-el6/kernel-ml-aufs-$KERNEL_BASE_VERSION.spec /root/rpmbuild/SPECS/
 
 cd /root/rpmbuild/SOURCES/
-git clone git://github.com/sfjro/aufs5-standalone.git -b aufs5.3 aufs-standalone
+git clone git://github.com/sfjro/aufs5-standalone.git -b aufs5.4 aufs-standalone
 
 cd /root/rpmbuild/SOURCES/aufs-standalone
 export HEAD_COMMIT=$(git rev-parse --short HEAD); git archive $HEAD_COMMIT > ../aufs-standalone.tar
